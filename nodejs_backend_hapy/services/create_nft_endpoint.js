@@ -10,7 +10,7 @@ class CreateNftEndPoint {
         this.hash = hash;
     }
 
-    async run() {
+    async totalSupply() {
         console.log('test')
         const apiClient = new ApiClient()
         let totalSupply = null;
