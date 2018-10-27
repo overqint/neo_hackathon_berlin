@@ -575,29 +575,6 @@ def do_tokens_of_owner(ctx, t_owner, start_index):
     Notify(TOKEN_DNE_ERROR)
     return False
 
-
-def tokens(ctx):
-    """Returns all tokens issued by this contract
-
-    The results would look something like:
-        [{'type': 'ByteArray',
-        'value':
-        '82060007746f6b656e2f010001010007746f6b656e2f020001020007746f6b656e2f030001030007746f6b656e2f040001040007746f6b656e2f050001050007746f6b656e2f06000106''}]
-
-    :param StorageContext ctx: current store context
-    :return: dict of tokens
-    :rtype: bool or dict
-    """
-
-    tokens = Get(ctx, TOKEN_CIRC_KEY)
-    return tokens
-    
-    Notify(TOKEN_DNE_ERROR)
-    return False
-
-
-
-
 def do_transfer(ctx, caller, args):
     """Transfers a token at the specified id from the t_owner address
     to the t_to address
