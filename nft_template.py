@@ -47,6 +47,7 @@ TOKEN_CONTRACT_OWNER = b'#\xba\'\x03\xc52c\xe8\xd6\xe5"\xdc2 39\xdc\xd8\xee\xe9'
 TOKEN_NAME = 'Non-Fungible Token Template'
 TOKEN_SYMBOL = 'NFT'
 TOKEN_CIRC_KEY = b'in_circulation'
+TOKEN_DECIMALS = 0 # indivisible
 
 # Smart Contract Event Notifications
 OnApprove = RegisterAction('approve', 'addr_from', 'addr_to', 'amount')
@@ -71,18 +72,33 @@ def Main(operation, args):
     :return: The result of the operation
     :rtype: bytearray
 
+
     Token operations:
+
+    - name(): returns name of token
+    - symbol(): returns token symbol
+    - totalSupply(): Returns the total token supply deployed in the
+      system.
+    - decimals(): Return decimalS
+    - tokens(): Return enumerator with all tokens FEHLT
+    - transfer(to, token_id, extra_arg): transfers a token
+    - ownerOf(token_id): returns the owner of the specified token.
+    - tokenURI(token_id): Returns a distinct Uniform Resource Identifier
+        (URI) for a given asset.
+        The URI data of a token supplies a reference to get more
+        information about a specific token or its data.
+    - balanceOf(owner): returns owner's current total tokens owned
+    - tokensOfOwner(owner, starting_index): returns a dictionary that
+        contains less than or equal to ten of the tokens owned by
+        the specified address starting at the `starting_index`.
+
     - allowance(token_id): returns approved third-party spender of a
         token
     - approve(token_receiver, token_id, revoke): approve third party
         to spend a token
-    - balanceOf(owner): returns owner's current total tokens owned
-    - name(): returns name of token
-    - ownerOf(token_id): returns the owner of the specified token.
     - properties(token_id): returns a token's read-only data
     - supportedStandards(): returns a list of supported standards
         {"NEP-10"}
-    - symbol(): returns token symbol
     - tokenData(token_id): returns a dictionary where token, property,
         and uri keys map to the corresponding data for the given
         `token_id`
@@ -91,18 +107,9 @@ def Main(operation, args):
         token, properties, and uri keys map to their corresponding data
         for each token id) owned by the specified address starting at
         the `starting_index`.
-    - tokensOfOwner(owner, starting_index): returns a dictionary that
-        contains less than or equal to ten of the tokens owned by
-        the specified address starting at the `starting_index`.
-    - totalSupply(): Returns the total token supply deployed in the
-        system.
-    - transfer(to, token_id, extra_arg): transfers a token
     - transferFrom(from, to, token_id, extra_arg): allows a third party
         to execute an approved transfer
-    - uri(token_id): Returns a distinct Uniform Resource Identifier
-        (URI) for a given asset.
-        The URI data of a token supplies a reference to get more
-        information about a specific token or its data.
+
 
     TOKEN_CONTRACT_OWNER operations:
         - mintToken(owner, properties, URI, extra_arg): create a new
@@ -148,12 +155,8 @@ def Main(operation, args):
             else:
                 return TOKEN_SYMBOL
 
-        elif operation == 'supportedStandards':
-            supported_standards = Get(ctx, 'supportedStandards')
-            if supported_standards:
-                return supported_standards
-            else:
-                return Serialize(['NEP-10'])
+        elif operation == 'decimals':
+            return TOKEN_DECIMALS        
 
         elif operation == 'totalSupply':
             return Get(ctx, TOKEN_CIRC_KEY)
@@ -571,6 +574,28 @@ def do_tokens_of_owner(ctx, t_owner, start_index):
 
     Notify(TOKEN_DNE_ERROR)
     return False
+
+
+def tokens(ctx):
+    """Returns all tokens issued by this contract
+
+    The results would look something like:
+        [{'type': 'ByteArray',
+        'value':
+        '82060007746f6b656e2f010001010007746f6b656e2f020001020007746f6b656e2f030001030007746f6b656e2f040001040007746f6b656e2f050001050007746f6b656e2f06000106''}]
+
+    :param StorageContext ctx: current store context
+    :return: dict of tokens
+    :rtype: bool or dict
+    """
+
+    tokens = Get(ctx, TOKEN_CIRC_KEY)
+    return tokens
+    
+    Notify(TOKEN_DNE_ERROR)
+    return False
+
+
 
 
 def do_transfer(ctx, caller, args):
