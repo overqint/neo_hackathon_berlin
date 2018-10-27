@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "hapi": "^17.6.0"
+    "hapi": "^17.6.0",
+    "@cityofzion/neon-js": "^4.1.1"
   }
 }
