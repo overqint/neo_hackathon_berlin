@@ -1,0 +1,4 @@
+.idea
+.DS_Store
+angular_frontend/node_modules
+angular_frontend/dist

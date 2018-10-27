@@ -50,3 +50,15 @@ build examples/nft_template.py test 0710 05 True True False name []
 
 Get the name of the smart contract:
 testinvoke 0x50c84208cdf84495b13bf98d7ded7b66e3f255e1 name 0710 05 True True False
+
+# Installation web backend
+- Create env python 3.6 and activate it
+- Go to folder python_web_backend
+- Install requirement.tx file
+```
+pip install -r requirements.txt
+```
+- Start the flask server
+```
+python manage.py runserver
+```
