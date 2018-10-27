@@ -16,11 +16,8 @@ class CreateNftEndPoint {
         let totalSupply = null;
         let invoke = await apiClient.invokeScript('totalSupply')
             .then(res => {
-                console.log(res);
                 let value = res.result.stack[0].value
-                console.log("returned value", value)
                 totalSupply = value;
-                console.log("totalSupply", totalSupply)
             })
             .catch(error => {
                 console.log("Invoke error", error)
