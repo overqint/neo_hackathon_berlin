@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 .idea
 .DS_Store
 angular_frontend/node_modules
 angular_frontend/dist
+=======
+nft_template.debug.json
+nft_template.avm
+>>>>>>> caa0393e7beb7ac151d7b418c1dc23150ad2a5b0
