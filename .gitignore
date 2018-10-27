@@ -1,2 +1,6 @@
+.idea
+.DS_Store
+angular_frontend/node_modules
+angular_frontend/dist
 nft_template.debug.json
 nft_template.avm
