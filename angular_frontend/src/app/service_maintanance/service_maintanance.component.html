@@ -15,7 +15,7 @@
                                     <div class="col-sm-8">
                                         <div class="form-group label-floating is-empty">
                                             <label class="control-label"></label>
-                                            <input type="text" id="serie-number" class="form-control" value>
+                                            <input #term (keyup)="modelChange(term.value)" type="text" id="serie-number" class="form-control" value>
                                             <span class="help-block">Engine serie number</span>
                                         </div>
                                     </div>

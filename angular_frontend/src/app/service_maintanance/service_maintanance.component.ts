@@ -24,15 +24,9 @@ export class ServiceMaintananceComponent implements OnInit, AfterViewInit, OnCha
 
     public tableData1: TableData;
 
-    public serieNumberValue: string;
+    public serieNumberValue: string = "";
 
     ngOnInit() {
-        this.tableData1 = {
-            headerRow: [ 'Auto Model', 'Engine SN', 'Mileage'],
-            dataRows: [
-                ['BMW i3', '23456727383535', '34578 Km']
-            ]
-         };
     }
 
     ngOnChanges(changes: SimpleChanges) {
@@ -43,6 +37,12 @@ export class ServiceMaintananceComponent implements OnInit, AfterViewInit, OnCha
 
     getAutoMetadata() {
         console.log(this.serieNumberValue);
+        this.tableData1 = {
+            headerRow: [ 'Auto Model', 'Engine SN', 'Mileage'],
+            dataRows: [
+                ['BMW i3', this.serieNumberValue, '34578 Km']
+            ]
+        };
         $('#data-card').show();
         $('#data-card').fadeIn();
         $('#data-card').slideDown();
@@ -64,4 +64,8 @@ export class ServiceMaintananceComponent implements OnInit, AfterViewInit, OnCha
         });
         */
     }
+
+    public modelChange(str: string): void {
+        this.serieNumberValue = str;
+      }
 }

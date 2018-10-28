@@ -1,8 +1,7 @@
 const ApiClient = require('./api_client');
 const neon_js = require('@cityofzion/neon-js');
 
-const contractScript = "8f02b02cc528ee5de89d5e27090ed4fa7dffaa19"
-const addressScriptHash = "23ba2703c53263e8d6e522dc32203339dcd8eee9"
+const addressScriptHash = "23ba2703c53263e8d6e522dc32203339dcd8eee9";
 var Neon = neon_js.default;
 
 class RegisterEndPoint {
