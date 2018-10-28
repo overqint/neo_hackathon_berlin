@@ -23,7 +23,22 @@ export interface ChildrenItems {
 //Menu Items
 export const ROUTES: RouteInfo[] = [{
         path: '/dashboard',
-        title: 'Dashboard',
+        title: 'Home',
+        type: 'link',
+        icontype: 'dashboard'
+    },{
+        path: '/manufacturer',
+        title: 'Manufacturer',
+        type: 'link',
+        icontype: 'dashboard'
+    },{
+        path: '/service_maintanance',
+        title: 'Service Maintanance',
+        type: 'link',
+        icontype: 'dashboard'
+    },{
+        path: '/third_party_customer',
+        title: 'Third Party Customer',
         type: 'link',
         icontype: 'dashboard'
     },{

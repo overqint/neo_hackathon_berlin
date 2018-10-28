@@ -13,6 +13,7 @@ import { FooterModule } from './shared/footer/footer.module';
 import { NavbarModule} from './shared/navbar/navbar.module';
 import { AdminLayoutComponent } from './layouts/admin/admin-layout.component';
 import { AuthLayoutComponent } from './layouts/auth/auth-layout.component';
+import { NhbService } from './services/nhb.service';
 
 import { AppRoutes } from './app.routing';
 
@@ -32,6 +33,7 @@ import { AppRoutes } from './app.routing';
         AdminLayoutComponent,
         AuthLayoutComponent
     ],
-    bootstrap:    [ AppComponent ]
+    bootstrap:    [ AppComponent ],
+    providers: [NhbService]
 })
 export class AppModule { }
