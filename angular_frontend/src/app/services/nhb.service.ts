@@ -13,7 +13,7 @@ export class NhbService {
 
     getNftMetadataBySerialnumber() {
         return this.http
-            .get(`${this.url}api/test`, '123456')
+            .get(`${this.url}api/test/123456`)
             .timeout(20000)
             .map((response: Response) => response.json())
             .catch(this.handleError);
