@@ -45,11 +45,29 @@ $ config sc-events on
 NFT template:
 https://github.com/Splyse/neo-nft-template/blob/master/nft_template.py
 
+Simple example:
+
 Build and test the name method: 
 build examples/nft_template.py test 0710 05 True True False name []
 
 Get the name of the smart contract:
 testinvoke 0x50c84208cdf84495b13bf98d7ded7b66e3f255e1 name 0710 05 True True False
+
+More complex example:
+build:
+build /smart-contracts/nft_template.py 0710 05 True True False
+
+import contract:
+import contract /smart-contracts/nft_template.avm 0710 05 True True False
+
+put properties into the smart contract
+testinvoke 0xd23d8fdd36b5490ba3dc5af4ecf94349e0621800 mintToken ["AK2nJJpJr6o664CWJKi1QRXjqeic2z
+Rp8y", "manufacturer_id:MF1234;mileage:10000", "/mfc/MF1234"]
+
+get properties from the smart contract
+testinvoke 0xd23d8fdd36b5490ba3dc5af4ecf94349e0621800 tokensDataOfOwner ["AK2nJJpJr6o664CWJKi1QR
+Xjqeic2zRp8y", 0]
+
 
 # Installation web backend
 - Create env python 3.6 and activate it
