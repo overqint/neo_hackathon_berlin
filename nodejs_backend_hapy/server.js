@@ -3,10 +3,13 @@ const CreateNftEndpoint = require('./services/create_nft_endpoint');
 const RegisterEndPoint = require('./services/register_endpoint');
 
 // Create a server with a host and port
-const server=Hapi.server({
-    host:'localhost',
-    port:5000,
-    routes: {cors: true}
+
+const server = Hapi.server({
+    host: 'localhost',
+    port: 5000,
+    routes: {
+        cors: true
+    }
 });
 
 server.route({
@@ -37,16 +40,16 @@ server.route({
 
 server.route({
     method: 'GET',
-    path: '/api/test/{nft_hash}',
+    path: '/api/tokensOfOwner',
     handler: async function (request, h) {
-        const response = h.response({"data": request.params.nft_hash});
+        const createNftEndpoint = new CreateNftEndpoint(request.params.nft_hash);
+        const responseEndpoint = await createNftEndpoint.getTokensByOwner();
+        const response = h.response(responseEndpoint.data);
         response.code(200);
         response.header('Content-Type', 'application/json; charset=utf-8');
         return response;
     }
 });
-
-
 
 
 // Start the server
