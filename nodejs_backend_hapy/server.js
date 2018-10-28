@@ -8,11 +8,11 @@ const server=Hapi.server({
 });
 
 server.route({
-    method:'GET',
-    path:'/api/test/{nft_hash}',
-    handler:async function(request,h) {
+    method: 'GET',
+    path: '/api/total-supply',
+    handler: async function (request, h) {
         const createNftEndpoint = new CreateNftEndpoint(request.params.nft_hash);
-        const responseEndpoint = await createNftEndpoint.run();
+        const responseEndpoint = await createNftEndpoint.totalSupply();
         const response = h.response(responseEndpoint.data);
         response.code(200);
         response.header('Content-Type', 'application/json; charset=utf-8');
@@ -20,12 +20,30 @@ server.route({
     }
 });
 
+server.route({
+    method: 'GET',
+    path: '/api/register',
+    handler: async function (request, h) {
+        const createNftEndpoint = new CreateNftEndpoint(request.params.nft_hash);
+        const responseEndpoint = await createNftEndpoint.register();
+        const response = h.response(responseEndpoint.data);
+        response.code(200);
+        response.header('Content-Type', 'application/json; charset=utf-8');
+        return response;
+    }
+});
+
+
+
+
+
+
+
 // Start the server
 async function start() {
     try {
         await server.start();
-    }
-    catch (err) {
+    } catch (err) {
         console.log(err);
         process.exit(1);
     }

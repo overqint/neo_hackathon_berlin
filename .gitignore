@@ -5,3 +5,5 @@ angular_frontend/dist
 nft_template.debug.json
 nft_template.avm
 nodejs_backend_hapy/node_modules
+hapi_web_backend/node_modules/
+hapi_web_backend/npm-debug.log
