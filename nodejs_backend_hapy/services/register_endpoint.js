@@ -15,10 +15,11 @@ class RegisterEndPoint {
 
     async run() {
         const apiClient = new ApiClient();
-        let params = {
-            manufacturer_id: "12345",
-            mileage: "0"
+        const params = {
+            manufacturer_id: this.payload.manufacturer_id,
+            mileage: this.payload.mileage
         };
+        console.log(params);
 
         let parameterString = JSON.stringify(params);
         let uri = Neon.u.str2hexstring("/mdcva/1233");
@@ -35,8 +36,12 @@ class RegisterEndPoint {
     }
 
     successfulResponse(data) {
-        this.response.data = data;
-        this.response.code = 200;
+        if (data.msg == "Successfully Done") {
+            this.response.data = {
+                msg: "success"
+            };
+            this.response.code = 200;
+        }
         return this.response;
     }
 }

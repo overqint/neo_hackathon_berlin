@@ -14,12 +14,12 @@
                                 <div class="col-sm-4 checkbox-radios">
                                     <div class="radio">
                                         <label>
-                                            <input type="radio" class="toggle" name="optionsRadios" value="BMW"> BMW
+                                            <input type="radio" class="toggle" name="optionsRadios" value="BMW_12345"> BMW
                                         </label>
                                     </div>
                                     <div class="radio">
                                         <label>
-                                            <input type="radio" class="toggle" name="optionsRadios" value="Mercedes"> Mercedes
+                                            <input type="radio" class="toggle" name="optionsRadios" value="Mercedes_12345"> Mercedes
                                         </label>
                                     </div>
                                     <div class="radio">
@@ -34,7 +34,7 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
-                                    <label class="col-sm-2 label-on-left">Neo Address</label>
+                                    <label class="col-sm-2 label-on-left">NEO Address</label>
                                     <div class="col-sm-6">
                                         <div class="form-group label-floating is-empty">
                                             <label class="control-label"></label>
@@ -44,7 +44,52 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <label class="col-sm-2 label-on-left">Auto Model</label>
+                                    <div class="col-sm-8">
+                                        <div class="form-group label-floating is-empty">
+                                            <label class="control-label"></label>
+                                            <input type="text" class="form-control" value>
+                                            <span class="help-block">The manufaturer auto model.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <label class="col-sm-2 label-on-left">Engine Serial Number</label>
+                                    <div class="col-sm-8">
+                                        <div class="form-group label-floating is-empty">
+                                            <label class="control-label"></label>
+                                            <input type="text" class="form-control" value>
+                                            <span class="help-block">Location of production.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <label class="col-sm-2 label-on-left">Mileage</label>
+                                    <div class="col-sm-8">
+                                        <div class="form-group label-floating is-empty">
+                                            <label class="control-label"></label>
+                                            <input type="text" class="form-control" value>
+                                            <span class="help-block">Auto mileage.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <label class="col-sm-2 label-on-left">Production Location</label>
+                                    <div class="col-sm-8">
+                                        <div class="form-group label-floating is-empty">
+                                            <label class="control-label"></label>
+                                            <input type="text" class="form-control" value>
+                                            <span class="help-block">Location of the auto production</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <button type="submit" class="btn btn-fill btn-rose" (click)="submit()">Submit</button>
+                            <div class="alert alert-success" id ="message-success" style="display:none;">
+                                <strong>Success!</strong> The car NFT was registered.
+                            </div>
                         </div>
                     </form>
                 </div>

@@ -31,8 +31,15 @@ export class ManufacturerComponent implements OnInit, AfterViewInit, OnChanges {
     submit() {
         const value = $('input[name=optionsRadios]:checked').val();
         console.log(value);
-        this.nhbService.getNftMetadataBySerialnumber().subscribe((data: any) => {
+        const payload = {"manufacturer_id": value,
+                        "mileage": 0};
+        this.nhbService.registerNftEngine(payload).subscribe((data: any) => {
             console.log(data);
+            if(data.msg === "success") {
+                $('#message-success').show();
+                $('#message-success').fadeIn();
+                $('#message-success').slideDown();
+            }
         });
     }
 }
