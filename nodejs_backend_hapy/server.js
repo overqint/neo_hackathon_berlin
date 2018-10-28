@@ -24,7 +24,7 @@ server.route({
 
 server.route({
     method: 'POST',
-    path: '/api/register/',
+    path: '/api/register',
     handler: async function (request, h) {
         const registerEndpoint = new RegisterEndPoint(request.payload);
         const responseEndpoint = await registerEndpoint.run();
