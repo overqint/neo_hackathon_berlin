@@ -494,8 +494,15 @@ def do_tokens_data_of_owner(ctx, t_owner, start_index):
     # and disregard trying to find a matching key thereafter.
     # (once a key has been found matching my search key
     # (or greater), just get everything afterward while count < 5)
+    
+    # properties
+    propsString = b'properties/['
+
+    print("Iteration before")
     while token_iter.next() and (count < 5):
+        print("iteration")
         if (token_iter.Key >= start_key) or (count > 0):
+            print("yessss")
             token_data = do_token_data(ctx, token_iter.Value)
             # simplify this if/when neo-boa implements something
             # like token_dict.update(token_data)
@@ -504,14 +511,18 @@ def do_tokens_data_of_owner(ctx, t_owner, start_index):
             prop_key = concat('properties/', token_iter.Value)
             uri_key = concat('uri/', token_iter.Value)
             # update dictionary
-            token_dict[token_key] = token_data[token_key]
-            token_dict[prop_key] = token_data[prop_key]
-            token_dict[uri_key] = token_data[uri_key]
+            p3 = concat(token_data[prop_key], ',')
+            propsString = concat(propsString, p3)            
 
             count += 1
 
-    if len(token_dict) >= 1:
-        return token_dict
+    #if len(token_dict) >= 1:
+    
+    propsString = concat(propsString, ']')
+    
+    print(propsString)
+
+    return propsString
 
     Notify(TOKEN_DNE_ERROR)
     return False
