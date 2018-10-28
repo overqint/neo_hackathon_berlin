@@ -17,5 +17,5 @@ pip3 install -r requirements.txt
 ```
 - Start the flask server
 ```
-python manage.py runserver
+python3 manage.py runserver
 ```
