@@ -13,7 +13,7 @@ This infofmation can be used by car manufacturers, service stations, end users a
 - Go to folder python_web_backend
 - Install requirement.tx file
 ```
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 - Start the flask server
 ```
