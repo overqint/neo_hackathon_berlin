@@ -37,28 +37,6 @@ class CreateNftEndPoint {
         return this.successfulResponse(data)
     }
 
-    // register a new motor as NFT
-    async register() {
-        const apiClient = new ApiClient()
-
-        let params = {
-            manufacturer_id: "12345",
-            mileage: "0"
-        }
-
-        let parameterString = JSON.stringify(params);
-        let uri = Neon.u.str2hexstring("/mdcva/1233")
-        let parameterStringHex = Neon.u.str2hexstring(parameterString)
-
-        let args = [addressScriptHash,
-            parameterStringHex,
-            uri
-        ]
-
-        const data = await apiClient.doInvoke("mintToken", args)
-        return this.successfulResponse(data)
-    }
-
     // get NFT tokens by owner address
     async getTokensByOwner() {
         let params = {
