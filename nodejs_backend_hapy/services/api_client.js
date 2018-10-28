@@ -5,7 +5,7 @@ const networkConfig = {
     neonode: "http://localhost:30333"
   }
 }
-const contractScript = "791ac646ea313cb556bac445400cf8829e2239b2"
+const contractScript = "8f02b02cc528ee5de89d5e27090ed4fa7dffaa19"
 
 var neon_js = require('@cityofzion/neon-js');
 var Neon = neon_js.default;

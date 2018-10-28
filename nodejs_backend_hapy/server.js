@@ -20,6 +20,25 @@ server.route({
     }
 });
 
+server.route({
+    method: 'GET',
+    path: '/api/register',
+    handler: async function (request, h) {
+        const createNftEndpoint = new CreateNftEndpoint(request.params.nft_hash);
+        const responseEndpoint = await createNftEndpoint.register();
+        const response = h.response(responseEndpoint.data);
+        response.code(200);
+        response.header('Content-Type', 'application/json; charset=utf-8');
+        return response;
+    }
+});
+
+
+
+
+
+
+
 // Start the server
 async function start() {
     try {
