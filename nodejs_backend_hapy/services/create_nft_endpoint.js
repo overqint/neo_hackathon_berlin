@@ -59,6 +59,32 @@ class CreateNftEndPoint {
         return this.successfulResponse(data)
     }
 
+    // get NFT tokens by owner address
+    async getTokensByOwner() {
+        let params = {
+            addressScriptHash: addressScriptHash,
+            startIndex: 0
+        }
+
+        const apiClient = new ApiClient()
+        let args = [params.addressScriptHash, params.startIndex]
+
+        const data = await apiClient.invokeScript("tokensDataOfOwner", args)
+
+        let value = data.result.stack[0].value;
+        let decoded = Neon.u.hexstring2str(value);
+
+        let properties = JSON.parse(decoded.match("(.*properties/)(.*)(,])")[2] + "]")
+
+        let respObject = {
+            "response": properties,
+            "msg": "Successfully Done",
+            "error": ""
+        }
+
+        return this.successfulResponse(respObject)
+    }
+
     successfulResponse(data) {
         this.response.data = data;
         this.response.code = 200;

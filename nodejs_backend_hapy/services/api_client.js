@@ -6,7 +6,7 @@ const networkConfig = {
   }
 }
 const privateKey = "KxDgvEKzgSBPPfuVfw67oPQBSjidEiqTHURKSDL1R7yGaGYAeYnr";
-const contractScript = "8f02b02cc528ee5de89d5e27090ed4fa7dffaa19"
+const contractScript = "cd48e036c7d3ad3423f7e88de50ca5bc8cd84665"
 
 var neon_js = require('@cityofzion/neon-js');
 var Neon = neon_js.default;
