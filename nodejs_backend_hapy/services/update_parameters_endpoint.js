@@ -1,10 +1,9 @@
 const ApiClient = require('./api_client');
 const neon_js = require('@cityofzion/neon-js');
 
-const addressScriptHash = "19f19de51717aa70e1dccf06e2f4666f7653775a"
 var Neon = neon_js.default;
 
-class RegisterEndPoint {
+class UpdateParametersEndPoint {
     constructor(payload) {
         this.response = {
             "data": {},
@@ -16,20 +15,17 @@ class RegisterEndPoint {
     async run() {
         const apiClient = new ApiClient();
         let params = {
-            manufacturer_id: "12345",
-            mileage: "0"
+            manufacturer_id: "66666",
+            mileage: "500000"
         };
+        let tokenId = 1
 
         let parameterString = JSON.stringify(params);
-        let uri = Neon.u.str2hexstring("/mdcva/1233");
         let parameterStringHex = Neon.u.str2hexstring(parameterString);
 
-        let args = [addressScriptHash,
-            parameterStringHex,
-            uri
-        ];
+        let args = [tokenId, parameterStringHex];
 
-        const data = await apiClient.doInvoke("mintToken", args);
+        const data = await apiClient.doInvoke("modifyProps", args);
         return this.successfulResponse(data);
 
     }
@@ -41,4 +37,4 @@ class RegisterEndPoint {
     }
 }
 
-module.exports = RegisterEndPoint;
+module.exports = UpdateParametersEndPoint;
