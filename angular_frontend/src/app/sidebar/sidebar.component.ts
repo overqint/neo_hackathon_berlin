@@ -41,7 +41,7 @@ export const ROUTES: RouteInfo[] = [{
         title: 'Third Party Customer',
         type: 'link',
         icontype: 'dashboard'
-    },{
+    }/*,{
         path: '/components',
         title: 'Components',
         type: 'sub',
@@ -116,7 +116,7 @@ export const ROUTES: RouteInfo[] = [{
             {path: 'lock', title: 'Lock Screen Page', ab:'LSP'},
             {path: 'user', title: 'User Page', ab:'UP'}
         ]
-    }
+    }*/
 ];
 @Component({
     selector: 'app-sidebar-cmp',

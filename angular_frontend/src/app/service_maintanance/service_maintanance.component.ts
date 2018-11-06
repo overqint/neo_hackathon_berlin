@@ -40,7 +40,7 @@ export class ServiceMaintananceComponent implements OnInit, AfterViewInit, OnCha
         this.tableData1 = {
             headerRow: [ 'Auto Model', 'Engine SN', 'Mileage'],
             dataRows: [
-                ['BMW i3', this.serieNumberValue, '34578 Km']
+                ['BMW i3', this.serieNumberValue, '0 Km']
             ]
         };
         $('#data-card').show();

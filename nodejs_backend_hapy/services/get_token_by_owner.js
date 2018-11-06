@@ -28,7 +28,7 @@ class GetTokenByOwnerEndPoint {
         const value = data.result.stack[0].value;
         const decoded = Neon.u.hexstring2str(value);
         console.log(decoded);
-debugger
+
         const properties = JSON.parse(decoded.match("(.*properties/)(.*)(,])")[2] + "]");
 
         const respObject = {
