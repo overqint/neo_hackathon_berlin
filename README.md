@@ -8,14 +8,22 @@ Objective:
 Design and develop a dApp based on Non-fungible Token that can have information about a different car parts.
 This infofmation can be used by car manufacturers, service stations, end users and so on
 
-# Installation web backend
-- Create env python 3.6 and activate it
-- Go to folder python_web_backend
-- Install requirement.tx file
+# Installation and start angular web app (Mac OS)
+- Install node.js
 ```
-pip3 install -r requirements.txt
+brew install node
 ```
-- Start the flask server
+- Install the Angular CLI
 ```
-python3 manage.py runserver
+npm install -g @angular/cli
 ```
+- Go to the angular_frontend directory
+- Install node dependencies
+```
+npm install
+```
+- Start the web app
+```
+npm start
+```
+- Open in a browser the url localhost:4200

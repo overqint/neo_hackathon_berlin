@@ -68,6 +68,26 @@ get properties from the smart contract
 testinvoke 0xd23d8fdd36b5490ba3dc5af4ecf94349e0621800 tokensDataOfOwner ["AK2nJJpJr6o664CWJKi1QR
 Xjqeic2zRp8y", 0]
 
+# Installation and start angular web app (Mac OS)
+- Install node.js
+```
+brew install node
+```
+- Install the Angular CLI
+```
+npm install -g @angular/cli
+```
+- Go to the angular_frontend directory
+- Install node dependencies
+```
+npm install
+```
+- Start the web app
+```
+npm start
+```
+- Open in a browser the url localhost:4200
+
 
 # Installation web backend
 - Create env python 3.6 and activate it
