@@ -1,7 +1,7 @@
 const ApiClient = require('./api_client');
 const neon_js = require('@cityofzion/neon-js');
 
-const addressScriptHash = "23ba2703c53263e8d6e522dc32203339dcd8eee9";
+const addressScriptHash = "19f19de51717aa70e1dccf06e2f4666f7653775a"
 var Neon = neon_js.default;
 
 class RegisterEndPoint {
@@ -36,8 +36,10 @@ class RegisterEndPoint {
     }
 
     successfulResponse(data) {
-        if(data.msg == "Successfully Done") {
-            this.response.data = {msg: "success"};
+        if (data.msg == "Successfully Done") {
+            this.response.data = {
+                msg: "success"
+            };
             this.response.code = 200;
         }
         return this.response;

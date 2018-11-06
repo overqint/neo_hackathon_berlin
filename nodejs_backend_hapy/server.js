@@ -1,6 +1,7 @@
 const Hapi = require('hapi');
 const CreateNftEndpoint = require('./services/create_nft_endpoint');
 const RegisterEndPoint = require('./services/register_endpoint');
+const UpdateParametersEndPoint = require('./services/update_parameters_endpoint');
 const GetTokenByOwnerEndPoint = require('./services/get_token_by_owner');
 
 // Create a server with a host and port
@@ -45,6 +46,19 @@ server.route({
     handler: async function (request, h) {
         const getTokenByOwnerEndPoint = new GetTokenByOwnerEndPoint(request.params.nft_hash);
         const responseEndpoint = await getTokenByOwnerEndPoint.run();
+        const response = h.response(responseEndpoint.data);
+        response.code(200);
+        response.header('Content-Type', 'application/json; charset=utf-8');
+        return response;
+    }
+});
+
+server.route({
+    method: 'GET',
+    path: '/api/updateParameters',
+    handler: async function (request, h) {
+        const registerEndpoint = new UpdateParametersEndPoint(request.payload);
+        const responseEndpoint = await registerEndpoint.run();
         const response = h.response(responseEndpoint.data);
         response.code(200);
         response.header('Content-Type', 'application/json; charset=utf-8');
